@@ -1,0 +1,43 @@
+Interactive PC Configuration Preview
+
+Animated Game Library ShowcaseI want you to create me a gaming lounge website, where all the people can see our gaming lounge location, food menu, FAQ, factilities and list of PC 's avaialble, list of games followed with PC specification and price list.
+
+for my nexus Gaming project, I want you to change the name and call it LEET Gaming Lounge. The website color has to be blue and white
+
+Yes implement these changes and simultaneously I want you to change the game from nexus gaming to Leet gaming lounge. Do note change the color to blue and white as well. Add three new categories as well
+"There are 4 lounges one is playstation lounge, one is smoking lounge only for PC, one is non smoking lounge only PC and other is Vip and streaming lounge only PC.
+
+These are the spec's u have to mention for normal PC's
+What are the PC specs?
+
+Answer: The PC specifications are as follows:
+
+Core i7- 14700F, 165Hz, 32GB RAM, 3060 Ti (Smoking & Non-Smoking Room)
+
+Core i7- 14700F, 240Hz, 32GB RAM, 3070 Ti (VIP/Tournament Room)
+
+and these are for streaming lounge
+What are the streaming room specs?
+
+Answer: The spec's for streaming room are as follows:
+-Core i9 14900K processor
+-Asus Prime Z790 Motherboard
+-Nvidia RTX 4090 GPU
+-BENQ 360Hz main monitor
+-BENQ Two side monitors, 240Hz each
+-Sony camera
+-Rhode microphone
+
+Ready to Level Up Your Gaming?
+Join us at Nexus Gaming Lounge for the ultimate gaming experience. Book your station now!
+
+I want you to change this and make level up in blue color and instead of join us at nexus gaming Lounge, change it to LEET Gaming lounge.
+
+I also want you to change the location for the lounge the link of the maps are as follows : https://maps.app.goo.gl/igGfbgdLoQUAcM7F7 and change the email to info@leetgaming.com.
+
+When you load the page it pops up on the tab with nexus gaming lounge, could you change it to LEET Gaming lounge instead?
+
+I want you do something for me, could you make the website more dynamic? For example as I scroll down icon's hover and appear in screen with a motion. Do that for each page I scroll down and make the animation as fade in for scrolling down and fade out for scrolling up and add the motto "In gaming LEET or 133t or 1337 refers to someone who is really good and skilled at playing"
+
+Also add this logo as well as it's LEET Icon cover and also make this cover as translucent background of the website. Do note that for LEET GAMING I want you to add LEET (space) Gaming with the logo right next to Welcome to Leet Gaming Lounge
+
