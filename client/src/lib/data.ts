@@ -220,7 +220,7 @@ export const facilities = [
 export const faqItems = [
   {
     question: "What are your operating hours?",
-    answer: "We're open 7 days a week from 10:00 AM to 2:00 AM. On weekends (Friday and Saturday), we extend our hours until 4:00 AM for late-night gaming sessions."
+    answer: "We're open 24/7 All day, every day of the week, to satisfy your gaming needs whenever you want to play."
   },
   {
     question: "What are your pricing options?",
