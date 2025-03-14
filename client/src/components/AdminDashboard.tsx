@@ -42,7 +42,7 @@ export default function AdminDashboard() {
     queryFn: async () => {
       return apiRequest("GET", "/api/bookings");
     },
-    enabled: authenticated,
+    enabled: isAuthenticated,
   });
 
   // Simulated stations data (in a real app this would be fetched from the API)
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
       
       return stationsList;
     },
-    enabled: authenticated,
+    enabled: isAuthenticated,
     refetchInterval: 60000, // Refetch every minute
   });
 
@@ -226,14 +226,15 @@ export default function AdminDashboard() {
     return bookingDate.getTime() === today.getTime();
   }) || [];
 
-  // Handle user authentication
-  const handleAuthenticated = (userData) => {
-    setAuthenticated(true);
-    setUser(userData);
+  // Handle user authentication from AdminAuth component
+  const handleAuthenticated = (userData: any) => {
+    // We're using the useAuth hook, so we don't need these local state setters
+    // Instead, we would use loginMutation from the useAuth hook in a real implementation
+    console.log("User authenticated:", userData);
   };
 
   // If not authenticated, show login screen
-  if (!authenticated) {
+  if (!isAuthenticated) {
     return <AdminAuth onAuthenticated={handleAuthenticated} />;
   }
 
