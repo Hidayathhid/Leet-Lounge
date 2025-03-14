@@ -55,7 +55,22 @@ interface AdminAuthProps {
 export default function AdminAuth({ onAuthenticated }: AdminAuthProps) {
   const { toast } = useToast();
   const [tab, setTab] = useState("login");
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setLocation] = useLocation();
+  
+  const { 
+    isAuthenticated, 
+    isLoading, 
+    loginMutation, 
+    registerMutation,
+    user
+  } = useAuth();
+  
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      onAuthenticated(user);
+    }
+  }, [isAuthenticated, user, onAuthenticated]);
   
   // Login form
   const loginForm = useForm<LoginForm>({
@@ -76,83 +91,22 @@ export default function AdminAuth({ onAuthenticated }: AdminAuthProps) {
     }
   });
   
-  const handleLogin = async (data: LoginForm) => {
-    setIsLoading(true);
-    try {
-      const response = await apiRequest("POST", "/api/auth/login", {
-        body: JSON.stringify({
-          username: data.username,
-          password: data.password
-        })
-      });
-      
-      if (response.success) {
-        toast({
-          title: "Login successful",
-          description: "Welcome to the admin dashboard",
-          variant: "default",
-        });
-        onAuthenticated(response.user);
-      } else {
-        toast({
-          title: "Login failed",
-          description: response.message || "Invalid credentials",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Login error",
-        description: "Failed to connect to the server",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  const handleRegister = async (data: RegisterForm) => {
-    setIsLoading(true);
-    try {
-      const response = await apiRequest("POST", "/api/auth/register", {
-        body: JSON.stringify({
-          username: data.username,
-          password: data.password
-        })
-      });
-      
-      if (response.success) {
-        toast({
-          title: "Registration successful",
-          description: "You can now log in with your credentials",
-          variant: "default",
-        });
-        setTab("login");
-        loginForm.setValue("username", data.username);
-      } else {
-        toast({
-          title: "Registration failed",
-          description: response.message || "Username may already be taken",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Registration error",
-        description: "Failed to connect to the server",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
   function onLoginSubmit(data: LoginForm) {
-    handleLogin(data);
+    loginMutation.mutate(data);
   }
   
   function onRegisterSubmit(data: RegisterForm) {
-    handleRegister(data);
+    registerMutation.mutate({
+      username: data.username,
+      password: data.password
+    }, {
+      onSuccess: (response) => {
+        if (response.success) {
+          setTab("login");
+          loginForm.setValue("username", data.username);
+        }
+      }
+    });
   }
   
   return (

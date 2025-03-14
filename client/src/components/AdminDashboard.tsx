@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/use-auth";
 import type { Booking } from "@shared/schema";
 import AdminAuth from "./AdminAuth";
 
@@ -29,30 +30,11 @@ interface Station {
 
 export default function AdminDashboard() {
   const { toast } = useToast();
-  const [authenticated, setAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const { isAuthenticated, user, logoutMutation } = useAuth();
   const [activeTab, setActiveTab] = useState("stations");
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
   const [maintenanceReason, setMaintenanceReason] = useState("");
   const [showMaintenanceModal, setShowMaintenanceModal] = useState(false);
-
-  // Check if user is already authenticated
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const response = await apiRequest("GET", "/api/auth/status");
-        
-        if (response.authenticated) {
-          setAuthenticated(true);
-          setUser(response.user);
-        }
-      } catch (error) {
-        // Not authenticated, that's okay
-      }
-    };
-    
-    checkAuth();
-  }, []);
 
   // Fetch all bookings
   const { data: bookings, isLoading: bookingsLoading } = useQuery({
