@@ -40,9 +40,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await apiRequest("/api/auth/status", {
-          method: "GET",
-        });
+        const response = await apiRequest("GET", "/api/auth/status");
         
         if (response.authenticated) {
           setAuthenticated(true);
@@ -60,9 +58,7 @@ export default function AdminDashboard() {
   const { data: bookings, isLoading: bookingsLoading } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
-      return apiRequest("/api/bookings", {
-        method: "GET",
-      });
+      return apiRequest("GET", "/api/bookings");
     },
     enabled: authenticated,
   });
