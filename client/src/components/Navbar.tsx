@@ -46,6 +46,9 @@ export default function Navbar() {
           <a href="#facilities" className="text-foreground hover:text-blue-500 transition-colors duration-300">Facilities</a>
           <a href="#faq" className="text-foreground hover:text-blue-500 transition-colors duration-300">FAQ</a>
           <a href="#contact" className="text-foreground hover:text-blue-500 transition-colors duration-300">Contact</a>
+          <Link href="/admin" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center">
+            <i className="fas fa-user-shield mr-2"></i> Admin
+          </Link>
         </motion.div>
         
         {/* Mobile Menu Button */}
@@ -69,6 +72,9 @@ export default function Navbar() {
           <a href="#facilities" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Facilities</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">FAQ</a>
           <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Contact</a>
+          <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center w-fit">
+            <i className="fas fa-user-shield mr-2"></i> Admin
+          </Link>
         </div>
       </div>
     </nav>
