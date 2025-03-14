@@ -265,9 +265,8 @@ export default function AdminDashboard() {
               variant="outline" 
               size="sm"
               onClick={() => {
-                // Handle logout
-                setAuthenticated(false);
-                setUser(null);
+                // Handle logout using the logoutMutation from useAuth
+                logoutMutation.mutate();
               }}
             >
               <i className="fas fa-sign-out-alt mr-2"></i>
