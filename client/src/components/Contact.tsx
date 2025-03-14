@@ -90,7 +90,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold mb-1">Our Location</h4>
                   <p className="text-gray-300">
-                    123 Gaming Street, Digital City, CA 90210
+                    SAHAB TOWER, Salem Al Mubarak St, Salmiya
                   </p>
                   <a href="https://maps.app.goo.gl/igGfbgdLoQUAcM7F7" target="_blank" className="text-blue-400 hover:text-blue-500 transition-colors duration-300 inline-flex items-center mt-2">
                     View on Maps <i className="fas fa-external-link-alt ml-2"></i>
@@ -123,9 +123,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold mb-1">Hours</h4>
                   <p className="text-gray-300">
-                    Monday - Thursday: 10AM - 2AM<br />
-                    Friday - Saturday: 10AM - 4AM<br />
-                    Sunday: 10AM - 12AM
+                    Everyday 24/7
                   </p>
                 </div>
               </div>
@@ -233,7 +231,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <iframe 
-            src="https://maps.google.com/maps?q=37.7749,-122.4194&z=15&output=embed" 
+            src="https://maps.google.com/maps?q=SAHAB+TOWER,+Salem+Al+Mubarak+St,+Salmiya&z=15&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 

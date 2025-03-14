@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt text-blue-500 mt-1 mr-3"></i>
-                <span className="text-gray-400">123 Gaming Street, Digital City, CA 90210</span>
+                <span className="text-gray-400">SAHAB TOWER, Salem Al Mubarak St, Salmiya</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-phone-alt text-blue-500 mt-1 mr-3"></i>
