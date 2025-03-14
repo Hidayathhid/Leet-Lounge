@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "./pages/home";
 import AdminDashboard from "@/components/AdminDashboard";
 import { AnimatedBackground, MouseTrailer } from "@/components/AnimatedEffects";
+import { AuthProvider } from "@/hooks/use-auth";
 
 function Router() {
   return (
@@ -24,8 +25,10 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router />
-      <Toaster />
+      <AuthProvider>
+        <Router />
+        <Toaster />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
