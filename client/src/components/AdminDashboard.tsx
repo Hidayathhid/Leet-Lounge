@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/use-auth";
 import type { Booking } from "@shared/schema";
 import AdminAuth from "./AdminAuth";
+import { initialNews, NewsItem } from "./News";
 
 // Simulated station data for real-time status
 interface Station {
@@ -35,6 +36,16 @@ export default function AdminDashboard() {
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
   const [maintenanceReason, setMaintenanceReason] = useState("");
   const [showMaintenanceModal, setShowMaintenanceModal] = useState(false);
+  
+  // News management state
+  const [newsItems, setNewsItems] = useState<NewsItem[]>(initialNews);
+  const [newNewsItem, setNewNewsItem] = useState<Omit<NewsItem, "id">>({
+    title: "",
+    content: "",
+    date: format(new Date(), "MMMM dd, yyyy"),
+    category: "news"
+  });
+  const [editingNewsId, setEditingNewsId] = useState<number | null>(null);
 
   // Fetch all bookings
   const { data: bookings, isLoading: bookingsLoading } = useQuery({
@@ -196,6 +207,97 @@ export default function AdminDashboard() {
       });
     },
   });
+  
+  // News management functions
+  const handleNewsInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setNewNewsItem(prev => ({ ...prev, [name]: value }));
+  };
+  
+  const addNewsItem = () => {
+    if (newNewsItem.title.trim() === '' || newNewsItem.content.trim() === '') {
+      toast({
+        title: "Validation Error",
+        description: "Title and content are required fields",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Add the news item
+    const newId = Math.max(0, ...newsItems.map(item => item.id)) + 1;
+    const newsItem: NewsItem = {
+      id: newId,
+      ...newNewsItem
+    };
+    
+    setNewsItems([newsItem, ...newsItems]);
+    
+    // Reset form
+    setNewNewsItem({
+      title: "",
+      content: "",
+      date: format(new Date(), "MMMM dd, yyyy"),
+      category: "news"
+    });
+    
+    toast({
+      title: "News Published",
+      description: "The news item has been published successfully",
+      variant: "default"
+    });
+  };
+  
+  const editNewsItem = (id: number) => {
+    const itemToEdit = newsItems.find(item => item.id === id);
+    if (!itemToEdit) return;
+    
+    setNewNewsItem({
+      title: itemToEdit.title,
+      content: itemToEdit.content,
+      date: itemToEdit.date,
+      category: itemToEdit.category,
+      imageUrl: itemToEdit.imageUrl
+    });
+    
+    setEditingNewsId(id);
+  };
+  
+  const updateNewsItem = () => {
+    if (!editingNewsId) return;
+    
+    const updatedItems = newsItems.map(item => 
+      item.id === editingNewsId ? { ...item, ...newNewsItem } : item
+    );
+    
+    setNewsItems(updatedItems);
+    
+    // Reset form
+    setNewNewsItem({
+      title: "",
+      content: "",
+      date: format(new Date(), "MMMM dd, yyyy"),
+      category: "news"
+    });
+    
+    setEditingNewsId(null);
+    
+    toast({
+      title: "News Updated",
+      description: "The news item has been updated successfully",
+      variant: "default"
+    });
+  };
+  
+  const deleteNewsItem = (id: number) => {
+    setNewsItems(newsItems.filter(item => item.id !== id));
+    
+    toast({
+      title: "News Deleted",
+      description: "The news item has been deleted",
+      variant: "default"
+    });
+  };
 
   // Group stations by type
   const stationsByType = stations.reduce((acc, station) => {
