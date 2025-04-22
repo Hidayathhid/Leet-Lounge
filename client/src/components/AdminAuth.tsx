@@ -142,8 +142,8 @@ export default function AdminAuth({ onAuthenticated }: AdminAuthProps) {
               <div className="p-4 bg-blue-900/20 border border-blue-800/30 rounded-lg mt-8">
                 <h3 className="font-semibold text-white mb-2">📌 Staff Note</h3>
                 <p className="text-sm">
-                  For demo, use username: <span className="font-mono bg-gray-800 px-1 rounded">admin</span> and 
-                  password: <span className="font-mono bg-gray-800 px-1 rounded">leet123</span>
+                  Use username: <span className="font-mono bg-gray-800 px-1 rounded">LEET</span> and 
+                  password: <span className="font-mono bg-gray-800 px-1 rounded">LeetKw2790</span>
                 </p>
               </div>
             </div>
