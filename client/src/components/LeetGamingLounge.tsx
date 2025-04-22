@@ -4,7 +4,7 @@ import Hero from "./Hero";
 import Lounges from "./Lounges";
 import GamingShowcase from "./GamingShowcase";
 import FoodDrinks from "./FoodDrinks";
-import Facilities from "./Facilities";
+import News from "./News";
 import Faq from "./Faq";
 import Contact from "./Contact";
 import Footer from "./Footer";
@@ -46,7 +46,7 @@ export default function LeetGamingLounge() {
       <Lounges />
       <GamingShowcase />
       <FoodDrinks />
-      <Facilities />
+      <News />
       <Faq />
       <Contact />
       <Footer />

@@ -103,7 +103,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold mb-1">Phone</h4>
                   <p className="text-gray-300">
-                    (555) 123-4567
+                    +965 69982790
                   </p>
                 </div>
               </div>
@@ -131,20 +131,14 @@ export default function Contact() {
               <div className="pt-4">
                 <h4 className="font-semibold mb-3">Follow Us</h4>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
+                  <a href="https://www.facebook.com/leetkw/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
                     <i className="fab fa-facebook-f text-2xl"></i>
                   </a>
-                  <a href="#" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
-                    <i className="fab fa-twitter text-2xl"></i>
-                  </a>
-                  <a href="#" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
+                  <a href="https://www.instagram.com/leet.kw?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
                     <i className="fab fa-instagram text-2xl"></i>
                   </a>
-                  <a href="#" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
+                  <a href="https://discord.gg/leetkw" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
                     <i className="fab fa-discord text-2xl"></i>
-                  </a>
-                  <a href="#" className="text-gray-300 hover:text-blue-500 transition-colors duration-300">
-                    <i className="fab fa-twitch text-2xl"></i>
                   </a>
                 </div>
               </div>

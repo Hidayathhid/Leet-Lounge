@@ -43,7 +43,7 @@ export default function Navbar() {
           <a href="#lounges" className="text-foreground hover:text-blue-500 transition-colors duration-300">Lounges</a>
           <a href="#games" className="text-foreground hover:text-blue-500 transition-colors duration-300">Games</a>
           <a href="#food" className="text-foreground hover:text-blue-500 transition-colors duration-300">Food & Drinks</a>
-          <a href="#facilities" className="text-foreground hover:text-blue-500 transition-colors duration-300">Facilities</a>
+          <a href="#news" className="text-foreground hover:text-blue-500 transition-colors duration-300">News & Updates</a>
           <a href="#faq" className="text-foreground hover:text-blue-500 transition-colors duration-300">FAQ</a>
           <a href="#contact" className="text-foreground hover:text-blue-500 transition-colors duration-300">Contact</a>
           <Link href="/admin" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center">
@@ -69,7 +69,7 @@ export default function Navbar() {
           <a href="#lounges" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Lounges</a>
           <a href="#games" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Games</a>
           <a href="#food" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Food & Drinks</a>
-          <a href="#facilities" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Facilities</a>
+          <a href="#news" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">News & Updates</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">FAQ</a>
           <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Contact</a>
           <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center w-fit">
