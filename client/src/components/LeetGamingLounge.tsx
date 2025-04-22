@@ -52,7 +52,7 @@ export default function LeetGamingLounge() {
       <Footer />
       <BackToTop />
       
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .bg-translucent-logo {
           position: relative;
         }
@@ -99,7 +99,7 @@ export default function LeetGamingLounge() {
         html {
           scroll-behavior: smooth;
         }
-      `}</style>
+      ` }} />
     </motion.div>
   );
 }

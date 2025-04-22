@@ -338,12 +338,15 @@ export default function AdminDashboard() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid grid-cols-3 mb-8">
+            <TabsList className="grid grid-cols-4 mb-8">
               <TabsTrigger value="stations">
                 <i className="fas fa-desktop mr-2"></i> Stations
               </TabsTrigger>
               <TabsTrigger value="bookings">
                 <i className="fas fa-calendar-alt mr-2"></i> Bookings
+              </TabsTrigger>
+              <TabsTrigger value="news">
+                <i className="fas fa-newspaper mr-2"></i> News
               </TabsTrigger>
               <TabsTrigger value="analytics">
                 <i className="fas fa-chart-line mr-2"></i> Analytics
