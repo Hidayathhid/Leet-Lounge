@@ -32,7 +32,7 @@ interface Station {
 export default function AdminDashboard() {
   const { toast } = useToast();
   const { isAuthenticated, user, logoutMutation } = useAuth();
-  const [activeTab, setActiveTab] = useState("stations");
+  const [activeTab, setActiveTab] = useState("news");
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
   const [maintenanceReason, setMaintenanceReason] = useState("");
   const [showMaintenanceModal, setShowMaintenanceModal] = useState(false);
@@ -674,6 +674,169 @@ export default function AdminDashboard() {
                       </table>
                     </div>
                   )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            {/* News Tab */}
+            <TabsContent value="news">
+              <Card className="bg-glass-dark">
+                <CardHeader>
+                  <CardTitle className="text-xl font-montserrat flex items-center">
+                    <i className="fas fa-newspaper text-blue-500 mr-2"></i> 
+                    News & Updates Management
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* News Entry Form */}
+                    <div className="md:col-span-1">
+                      <Card className="bg-background/20 p-4">
+                        <h3 className="text-lg font-semibold mb-4">
+                          {editingNewsId ? 'Edit News Item' : 'Add New Post'}
+                        </h3>
+                        <div className="space-y-4">
+                          <div>
+                            <label className="block text-sm font-medium mb-1">Title</label>
+                            <input
+                              type="text"
+                              name="title"
+                              value={newNewsItem.title}
+                              onChange={handleNewsInputChange}
+                              className="w-full p-2 rounded bg-background border border-gray-700"
+                              placeholder="Enter news title"
+                            />
+                          </div>
+                          
+                          <div>
+                            <label className="block text-sm font-medium mb-1">Category</label>
+                            <select 
+                              name="category"
+                              value={newNewsItem.category}
+                              onChange={handleNewsInputChange}
+                              className="w-full p-2 rounded bg-background border border-gray-700"
+                            >
+                              <option value="news">News</option>
+                              <option value="event">Event</option>
+                              <option value="offer">Special Offer</option>
+                              <option value="tournament">Tournament</option>
+                            </select>
+                          </div>
+                          
+                          <div>
+                            <label className="block text-sm font-medium mb-1">Date</label>
+                            <input
+                              type="date"
+                              name="date"
+                              value={format(new Date(newNewsItem.date), 'yyyy-MM-dd')}
+                              onChange={handleNewsInputChange}
+                              className="w-full p-2 rounded bg-background border border-gray-700"
+                            />
+                          </div>
+                          
+                          <div>
+                            <label className="block text-sm font-medium mb-1">Content</label>
+                            <textarea
+                              name="content"
+                              value={newNewsItem.content}
+                              onChange={handleNewsInputChange}
+                              className="w-full p-2 rounded bg-background border border-gray-700 min-h-[150px]"
+                              placeholder="Enter news content"
+                            ></textarea>
+                          </div>
+                          
+                          <div>
+                            <label className="block text-sm font-medium mb-1">Image URL (optional)</label>
+                            <input
+                              type="text"
+                              name="imageUrl"
+                              value={newNewsItem.imageUrl || ''}
+                              onChange={handleNewsInputChange}
+                              className="w-full p-2 rounded bg-background border border-gray-700"
+                              placeholder="Enter image URL"
+                            />
+                          </div>
+                          
+                          {editingNewsId ? (
+                            <div className="flex space-x-2">
+                              <Button 
+                                className="w-full" 
+                                onClick={updateNewsItem}
+                              >
+                                <i className="fas fa-save mr-2"></i> Update
+                              </Button>
+                              <Button 
+                                variant="outline" 
+                                className="w-full"
+                                onClick={() => {
+                                  setEditingNewsId(null);
+                                  setNewNewsItem({
+                                    title: "",
+                                    content: "",
+                                    date: format(new Date(), "MMMM dd, yyyy"),
+                                    category: "news"
+                                  });
+                                }}
+                              >
+                                <i className="fas fa-times mr-2"></i> Cancel
+                              </Button>
+                            </div>
+                          ) : (
+                            <Button 
+                              className="w-full"
+                              onClick={addNewsItem}
+                            >
+                              <i className="fas fa-plus mr-2"></i> Publish News
+                            </Button>
+                          )}
+                        </div>
+                      </Card>
+                    </div>
+                    
+                    {/* News List */}
+                    <div className="md:col-span-2">
+                      <div className="space-y-4">
+                        {newsItems.map((item) => (
+                          <Card key={item.id} className="bg-background/20 p-4 relative overflow-hidden">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <h3 className="text-lg font-semibold">{item.title}</h3>
+                                <div className="flex items-center space-x-3 mt-1 mb-3">
+                                  <span className={`text-xs px-2 py-1 rounded-full ${
+                                    item.category === "news" ? "bg-blue-500/20 text-blue-400" :
+                                    item.category === "tournament" ? "bg-purple-500/20 text-purple-400" :
+                                    item.category === "offer" ? "bg-green-500/20 text-green-400" :
+                                    "bg-amber-500/20 text-amber-400"
+                                  }`}>
+                                    {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                                  </span>
+                                  <span className="text-sm text-gray-400">{item.date}</span>
+                                </div>
+                                <p className="text-gray-300">{item.content}</p>
+                              </div>
+                            </div>
+                            <div className="flex space-x-2 mt-4">
+                              <Button 
+                                size="sm" 
+                                variant="outline"
+                                onClick={() => editNewsItem(item.id)}
+                              >
+                                <i className="fas fa-edit mr-1"></i> Edit
+                              </Button>
+                              <Button 
+                                size="sm" 
+                                variant="outline" 
+                                className="text-red-400 hover:text-red-300"
+                                onClick={() => deleteNewsItem(item.id)}
+                              >
+                                <i className="fas fa-trash-alt mr-1"></i> Delete
+                              </Button>
+                            </div>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
