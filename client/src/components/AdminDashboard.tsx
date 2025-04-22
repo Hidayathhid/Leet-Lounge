@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/use-auth";
 import type { Booking } from "@shared/schema";
 import AdminAuth from "./AdminAuth";
-import { initialNews, NewsItem } from "./News";
+import { NewsItem, initialNews } from "@/data/newsItems";
 
 // Simulated station data for real-time status
 interface Station {
@@ -440,7 +440,7 @@ export default function AdminDashboard() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid grid-cols-4 mb-8">
+            <TabsList className="grid grid-cols-5 mb-8">
               <TabsTrigger value="stations">
                 <i className="fas fa-desktop mr-2"></i> Stations
               </TabsTrigger>

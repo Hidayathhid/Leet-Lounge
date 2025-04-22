@@ -138,7 +138,7 @@ export default function GamingShowcase() {
         </motion.div>
       </div>
       
-      <style jsx>{`
+      <style jsx="true">{`
         .game-item:hover img {
           transform: scale(1.05);
         }
