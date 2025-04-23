@@ -173,8 +173,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // In a real app, validate credentials against database
       // For demo purposes
-      if (username === "admin" && password === "leet123") {
-        const user = { id: 1, username: "admin" };
+      if (username === "Leet" && password === "Leetkw2020") {
+        const user = { id: 1, username: "Leet" };
         req.session.user = user;
         
         return res.status(200).json({
