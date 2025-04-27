@@ -24,15 +24,12 @@ export default function FoodMenu() {
               {foodItems.map((item, index) => (
                 <div 
                   key={index} 
-                  className={`flex justify-between items-center ${
+                  className={`${
                     index < foodItems.length - 1 ? "border-b border-gray-200 pb-4" : ""
                   }`}
                 >
-                  <div>
-                    <h4 className="font-bold text-lg">{item.name}</h4>
-                    <p className="text-gray-600">{item.description}</p>
-                  </div>
-                  <span className="font-bold text-primary">${item.price}</span>
+                  <h4 className="font-bold text-lg">{item.name}</h4>
+                  <p className="text-gray-600">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -47,15 +44,12 @@ export default function FoodMenu() {
               {drinkItems.map((item, index) => (
                 <div 
                   key={index} 
-                  className={`flex justify-between items-center ${
+                  className={`${
                     index < drinkItems.length - 1 ? "border-b border-gray-200 pb-4" : ""
                   }`}
                 >
-                  <div>
-                    <h4 className="font-bold text-lg">{item.name}</h4>
-                    <p className="text-gray-600">{item.description}</p>
-                  </div>
-                  <span className="font-bold text-primary">${item.price}</span>
+                  <h4 className="font-bold text-lg">{item.name}</h4>
+                  <p className="text-gray-600">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -65,8 +59,7 @@ export default function FoodMenu() {
         <AnimatedSection className="mt-12 flex justify-center" delay={0.4}>
           <div className="bg-gray-100 p-6 rounded-lg max-w-lg text-center">
             <h3 className="font-bold text-lg mb-2">Special Deal: Gamer's Combo</h3>
-            <p className="mb-4">Get any food item, a drink, and 1 hour of gaming time for a special price!</p>
-            <span className="font-bold text-2xl text-primary">$19.99</span>
+            <p>Get any food item, a drink, and 1 hour of gaming time for a special price!</p>
           </div>
         </AnimatedSection>
       </div>

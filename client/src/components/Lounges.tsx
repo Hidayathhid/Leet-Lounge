@@ -290,26 +290,7 @@ export default function Lounges() {
                       <PCSpecs specs={lounge.specs} className="bg-black/20 p-4 rounded-lg" />
                     </div>
 
-                    <div className="mb-8">
-                      <h4 className="text-xl font-semibold mb-3 text-blue-400">Pricing</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {lounge.pricing.map((price, index) => (
-                          <div key={index} className="bg-blue-900/20 p-3 rounded-lg text-center">
-                            <p className="text-gray-300">{price.duration}</p>
-                            <p className="text-xl font-bold text-blue-400">{price.price}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex justify-end">
-                      <Button 
-                        className="bg-blue-600 hover:bg-blue-500"
-                        onClick={() => handleShowDetails(lounge)}
-                      >
-                        Reserve Now
-                      </Button>
-                    </div>
+                    {/* Pricing and Reserve Button removed */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -329,7 +310,7 @@ export default function Lounges() {
           >
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-2xl font-bold">{selectedLounge.name} Reservation</h3>
+                <h3 className="text-2xl font-bold">{selectedLounge.name} Details</h3>
                 <button 
                   onClick={() => setShowModal(false)}
                   className="text-gray-400 hover:text-white"
@@ -343,7 +324,7 @@ export default function Lounges() {
 
               <div className="mb-6">
                 <p className="text-gray-400 text-center">
-                  To make a reservation for {selectedLounge.name}, please visit our booking section or contact us directly.
+                  Explore the features and specifications of our {selectedLounge.name}.
                 </p>
                 
                 {selectedLounge.screenContent && (
@@ -364,19 +345,9 @@ export default function Lounges() {
                 )}
               </div>
 
-              <div className="flex justify-center space-x-4">
+              <div className="flex justify-center">
                 <Button variant="outline" onClick={() => setShowModal(false)}>
-                  Cancel
-                </Button>
-                <Button className="bg-blue-600 hover:bg-blue-500" onClick={() => {
-                  setShowModal(false);
-                  // Scroll to booking section
-                  const bookingSection = document.getElementById('booking');
-                  if (bookingSection) {
-                    bookingSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}>
-                  Go to Booking
+                  Close
                 </Button>
               </div>
             </div>
