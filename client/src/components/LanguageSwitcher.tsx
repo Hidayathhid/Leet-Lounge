@@ -1,56 +1,49 @@
-import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/hooks/use-language";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from 'react';
+import { useLanguage } from '@/hooks/use-language';
+import { Button } from '@/components/ui/button';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
+import { Globe, Check } from 'lucide-react';
 
 export default function LanguageSwitcher() {
   const { language, setLanguage, t } = useLanguage();
-  const [isChanging, setIsChanging] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   
-  const toggleLanguage = () => {
-    setIsChanging(true);
-    setTimeout(() => {
-      setLanguage(language === 'en' ? 'ar' : 'en');
-      setIsChanging(false);
-    }, 300);
+  const handleLanguageChange = (lang: 'en' | 'ar') => {
+    setLanguage(lang);
+    setIsOpen(false);
   };
   
   return (
-    <div className="relative">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={language}
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -5 }}
-          transition={{ duration: 0.3 }}
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger asChild>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="focus:outline-none text-foreground hover:text-blue-500 transition-colors duration-300"
         >
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={toggleLanguage}
-            disabled={isChanging}
-            className="flex items-center gap-2 text-gray-300 hover:text-white"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-            {t('language')}
-          </Button>
-        </motion.div>
-      </AnimatePresence>
-    </div>
+          <Globe className="h-5 w-5" />
+          <span className="sr-only">{t('language.switch')}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
+          <div className="flex items-center">
+            <span className="mr-2">English</span>
+            {language === 'en' && <Check className="h-4 w-4" />}
+          </div>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleLanguageChange('ar')} dir="rtl">
+          <div className="flex items-center">
+            <span className="ml-2">العربية</span>
+            {language === 'ar' && <Check className="h-4 w-4" />}
+          </div>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

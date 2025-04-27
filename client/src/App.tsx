@@ -7,6 +7,7 @@ import Home from "./pages/home";
 import AdminDashboard from "@/components/AdminDashboard";
 import { AnimatedBackground, MouseTrailer } from "@/components/AnimatedEffects";
 import { AuthProvider } from "@/hooks/use-auth";
+import { LanguageProvider } from "@/hooks/use-language";
 
 function Router() {
   return (
@@ -25,10 +26,12 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Router />
-        <Toaster />
-      </AuthProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <Router />
+          <Toaster />
+        </AuthProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

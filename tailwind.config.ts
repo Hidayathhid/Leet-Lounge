@@ -5,6 +5,10 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        english: ["Greycliff CF", "Montserrat", "sans-serif"],
+        arabic: ["Dubai", "Noto Sans Arabic", "Noto Kufi Arabic", "sans-serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

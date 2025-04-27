@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import LeetLogo from "./icons/LeetLogo";
 import { Link } from "wouter";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,16 +42,17 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <a href="#home" className="text-foreground hover:text-blue-500 transition-colors duration-300">Home</a>
-          <a href="#lounges" className="text-foreground hover:text-blue-500 transition-colors duration-300">Lounges</a>
-          <a href="#games" className="text-foreground hover:text-blue-500 transition-colors duration-300">Games</a>
-          <a href="#food" className="text-foreground hover:text-blue-500 transition-colors duration-300">Food & Drinks</a>
-          <a href="#news" className="text-foreground hover:text-blue-500 transition-colors duration-300">News & Updates</a>
-          <a href="#faq" className="text-foreground hover:text-blue-500 transition-colors duration-300">FAQ</a>
-          <a href="#contact" className="text-foreground hover:text-blue-500 transition-colors duration-300">Contact</a>
+          <a href="#home" className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.home')}</a>
+          <a href="#lounges" className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.lounges')}</a>
+          <a href="#games" className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.games')}</a>
+          <a href="#food" className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.food')}</a>
+          <a href="#news" className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.news')}</a>
+          <a href="#faq" className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.faq')}</a>
+          <a href="#contact" className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.contact')}</a>
           <Link href="/admin" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center">
-            <i className="fas fa-user-shield mr-2"></i> Admin
+            <i className="fas fa-user-shield mr-2"></i> {t('nav.admin')}
           </Link>
+          <LanguageSwitcher />
         </motion.div>
         
         {/* Mobile Menu Button */}
