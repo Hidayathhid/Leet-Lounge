@@ -73,7 +73,7 @@ export default function AdminDashboard() {
   };
 
   const editNewsItem = (id: number) => {
-    const itemToEdit = newsItems.find(item => item.id === id);
+    const itemToEdit = news.find(item => item.id === id);
     if (!itemToEdit) return;
 
     setNewNewsItem({
@@ -90,12 +90,11 @@ export default function AdminDashboard() {
   const updateNewsItem = () => {
     if (!editingNewsId) return;
 
-    const updatedItems = newsItems.map(item => 
+    const updatedItems = news.map(item => 
       item.id === editingNewsId ? { ...item, ...newNewsItem } : item
     );
 
-    setNewsItems(updatedItems);
-    setNews(updatedItems); // Update news context as well
+    setNews(updatedItems); // Update news context
 
     setNewNewsItem({
       title: "",
@@ -284,7 +283,7 @@ export default function AdminDashboard() {
                 {/* News List */}
                 <div className="md:col-span-2">
                   <div className="space-y-4">
-                    {newsItems.map((item) => (
+                    {news.map((item) => (
                       <Card key={item.id} className="bg-background/20 p-4 relative overflow-hidden">
                         <div className="flex justify-between items-start">
                           <div>
