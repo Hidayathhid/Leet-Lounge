@@ -6,7 +6,8 @@ export default function Hero() {
     <section id="home" className="h-screen flex items-center justify-center relative overflow-hidden pt-16">
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/leet main.jpeg" 
+          src="/images/leet main.jpeg"
+          style={{ objectFit: 'cover', objectPosition: 'center' }} 
           alt="Gaming Background" 
           className="w-full h-full object-cover"
         />

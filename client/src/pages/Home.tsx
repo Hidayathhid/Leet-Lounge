@@ -22,7 +22,9 @@ export default function Home() {
       <div 
         className="bg-translucent" 
         style={{ 
-          backgroundImage: `url('/images/leet main.jpeg')` 
+          backgroundImage: `url('/images/leet main.jpeg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center' 
         }}
       />
       
