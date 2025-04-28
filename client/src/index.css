@@ -1,12 +1,11 @@
 @import url('https://fonts.cdnfonts.com/css/greycliff-cf');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap');
 
 :root {
   --font-english: 'Montserrat', sans-serif;
@@ -36,43 +35,43 @@
 
   body {
     @apply antialiased bg-background text-foreground;
-  }
-  
+  }  
+
   /* English language styling */
   html.font-english body {
     font-family: 'Greycliff CF', 'Montserrat', sans-serif;
-  }
-  
+  }  
+
   /* Arabic language styling */
   html.font-arabic body {
     font-family: 'Dubai', 'Noto Kufi Arabic', 'Noto Sans Arabic', sans-serif;
-  }
-  
+  }  
+
   /* RTL support */
   html[dir="rtl"] * {
     text-align: right;
-  }
-  
+  }  
+
   html[dir="rtl"] .flex-row {
     flex-direction: row-reverse;
-  }
-  
+  }  
+
   html[dir="rtl"] .ml-auto {
     margin-left: 0;
     margin-right: auto;
-  }
-  
+  }  
+
   html[dir="rtl"] .mr-auto {
     margin-right: 0;
     margin-left: auto;
-  }
-  
+  }  
+
   html[dir="rtl"] .ml-1, html[dir="rtl"] .ml-2, html[dir="rtl"] .ml-3, 
   html[dir="rtl"] .ml-4, html[dir="rtl"] .ml-5, html[dir="rtl"] .ml-6 {
     margin-left: 0;
     margin-right: 0.25rem;
-  }
-  
+  }  
+
   html[dir="rtl"] .mr-1, html[dir="rtl"] .mr-2, html[dir="rtl"] .mr-3, 
   html[dir="rtl"] .mr-4, html[dir="rtl"] .mr-5, html[dir="rtl"] .mr-6 {
     margin-right: 0;
