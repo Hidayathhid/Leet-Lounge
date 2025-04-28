@@ -1,3 +1,4 @@
+
 import { createContext, useState } from 'react';
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
@@ -9,11 +10,29 @@ import AdminDashboard from "@/components/AdminDashboard";
 import { AnimatedBackground, MouseTrailer } from "@/components/AnimatedEffects";
 import { AuthProvider } from "@/hooks/use-auth";
 import { LanguageProvider } from "@/hooks/use-language";
-
 import { initialNews, NewsItem } from './data/newsItems';
 
-export const NewsContext = createContext<{ news: NewsItem[], setNews: React.Dispatch<React.SetStateAction<NewsItem[]>> }>({ news: initialNews, setNews: () => { } });
+export const NewsContext = createContext<{
+  news: NewsItem[];
+  setNews: (news: NewsItem[]) => void;
+}>({ news: [], setNews: () => {} });
 
+function App() {
+  const [news, setNews] = useState<NewsItem[]>(initialNews);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <LanguageProvider>
+          <NewsContext.Provider value={{ news, setNews }}>
+            <Router />
+            <Toaster />
+          </NewsContext.Provider>
+        </LanguageProvider>
+      </AuthProvider>
+    </QueryClientProvider>
+  );
+}
 
 function Router() {
   return (
@@ -26,23 +45,6 @@ function Router() {
         <Route component={NotFound} />
       </Switch>
     </>
-  );
-}
-
-function App() {
-  const [newsItems, setNewsItems] = useState<NewsItem[]>(initialNews);
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <NewsContext.Provider value={{ news: newsItems, setNews: setNewsItems }}>
-        <LanguageProvider>
-          <AuthProvider>
-            <Router />
-            <Toaster />
-          </AuthProvider>
-        </LanguageProvider>
-      </NewsContext.Provider>
-    </QueryClientProvider>
   );
 }
 

@@ -17,7 +17,6 @@ export default function AdminDashboard() {
 
   // News management state
   const { news, setNews } = useContext(NewsContext);
-  const [newsItems, setNewsItems] = useState<NewsItem[]>(news);
   const [newNewsItem, setNewNewsItem] = useState<Omit<NewsItem, "id">>({
     title: "",
     content: "",
@@ -48,8 +47,7 @@ export default function AdminDashboard() {
       ...newNewsItem
     };
 
-    const updatedNews = [newsItem, ...newsItems];
-    setNewsItems(updatedNews);
+    const updatedNews = [newsItem, ...news];
     setNews(updatedNews);
 
     setNewNewsItem({
@@ -116,8 +114,8 @@ export default function AdminDashboard() {
   };
 
   const deleteNewsItem = (id: number) => {
-    setNewsItems(newsItems.filter(item => item.id !== id));
-    setNews(newsItems.filter(item => item.id !== id)); // Update news context
+    const filteredNews = news.filter(item => item.id !== id);
+    setNews(filteredNews); // Update news context
 
     toast({
       title: "News Deleted",
