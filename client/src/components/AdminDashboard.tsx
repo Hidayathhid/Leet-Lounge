@@ -89,6 +89,7 @@ export default function AdminDashboard() {
     );
 
     setNewsItems(updatedItems);
+    setNews(updatedItems); // Update news context as well
 
     setNewNewsItem({
       title: "",
@@ -108,6 +109,7 @@ export default function AdminDashboard() {
 
   const deleteNewsItem = (id: number) => {
     setNewsItems(newsItems.filter(item => item.id !== id));
+    setNews(newsItems.filter(item => item.id !== id)); // Update news context
 
     toast({
       title: "News Deleted",
