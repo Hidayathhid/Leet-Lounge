@@ -10,11 +10,9 @@ import { AnimatedBackground, MouseTrailer } from "@/components/AnimatedEffects";
 import { AuthProvider } from "@/hooks/use-auth";
 import { LanguageProvider } from "@/hooks/use-language";
 
-// Assume necessary types and initial state
-type NewsItem = { title: string; content: string; };
-const initialNews: NewsItem[] = [];
+import { initialNews, NewsItem } from './data/newsItems';
 
-const NewsContext = createContext<{ news: NewsItem[], setNews: React.Dispatch<React.SetStateAction<NewsItem[]>> }>({ news: [], setNews: () => { } });
+export const NewsContext = createContext<{ news: NewsItem[], setNews: React.Dispatch<React.SetStateAction<NewsItem[]>> }>({ news: initialNews, setNews: () => { } });
 
 
 function Router() {

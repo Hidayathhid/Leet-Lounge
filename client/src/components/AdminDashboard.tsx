@@ -64,6 +64,14 @@ export default function AdminDashboard() {
       description: "The news item has been published successfully",
       variant: "default"
     });
+    
+    // Redirect to news section
+    const newsSection = document.getElementById('news');
+    if (newsSection) {
+      newsSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#news';
+    }
   };
 
   const editNewsItem = (id: number) => {
