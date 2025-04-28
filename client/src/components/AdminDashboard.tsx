@@ -233,14 +233,24 @@ export default function AdminDashboard() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium mb-1">Image URL (optional)</label>
+                        <label className="block text-sm font-medium mb-1">Upload Image (optional)</label>
                         <input
-                          type="text"
-                          name="imageUrl"
-                          value={newNewsItem.imageUrl || ''}
-                          onChange={handleNewsInputChange}
-                          className="w-full p-2 rounded bg-background border border-gray-700"
-                          placeholder="Enter image URL"
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              const reader = new FileReader();
+                              reader.onloadend = () => {
+                                setNewNewsItem(prev => ({
+                                  ...prev,
+                                  imageUrl: reader.result as string
+                                }));
+                              };
+                              reader.readAsDataURL(file);
+                            }
+                          }}
+                          className="w-full p-2 rounded bg-background border border-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                         />
                       </div>
 
