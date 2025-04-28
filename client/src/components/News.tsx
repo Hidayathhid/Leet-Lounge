@@ -4,15 +4,18 @@ import { format } from "date-fns";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "./AnimatedSection";
-import { NewsItem, initialNews } from "@/data/newsItems";
+import { NewsItem } from "@/data/newsItems";
+import { NewsContext } from "@/hooks/use-language";
+import { useContext } from "react";
 
 export default function News() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
   
+  const { news } = useContext(NewsContext);
   const filteredNews = activeCategory === "all" 
-    ? initialNews 
-    : initialNews.filter(item => item.category === activeCategory);
+    ? news 
+    : news.filter(item => item.category === activeCategory);
 
   return (
     <section id="news" className="py-20 bg-background">

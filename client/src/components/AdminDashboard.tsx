@@ -6,7 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/use-auth";
 import AdminAuth from "./AdminAuth";
-import { NewsItem, initialNews } from "@/data/newsItems";
+import { NewsItem } from "@/data/newsItems";
+import { NewsContext } from "@/hooks/use-language";
+import { useContext } from "react";
 import { format } from "date-fns";
 
 export default function AdminDashboard() {
@@ -14,7 +16,8 @@ export default function AdminDashboard() {
   const { isAuthenticated, user, logoutMutation } = useAuth();
 
   // News management state
-  const [newsItems, setNewsItems] = useState<NewsItem[]>(initialNews);
+  const { news, setNews } = useContext(NewsContext);
+  const [newsItems, setNewsItems] = useState<NewsItem[]>(news);
   const [newNewsItem, setNewNewsItem] = useState<Omit<NewsItem, "id">>({
     title: "",
     content: "",
@@ -45,7 +48,9 @@ export default function AdminDashboard() {
       ...newNewsItem
     };
 
-    setNewsItems([newsItem, ...newsItems]);
+    const updatedNews = [newsItem, ...newsItems];
+    setNewsItems(updatedNews);
+    setNews(updatedNews);
 
     setNewNewsItem({
       title: "",

@@ -168,6 +168,10 @@ const arTranslations: TranslationDictionary = {
 };
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const NewsContext = createContext<{
+  news: NewsItem[];
+  setNews: (news: NewsItem[]) => void;
+}>({ news: [], setNews: () => {} });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('en');

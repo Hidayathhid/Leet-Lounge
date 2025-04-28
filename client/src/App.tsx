@@ -1,3 +1,4 @@
+import { createContext, useState } from 'react';
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -8,6 +9,13 @@ import AdminDashboard from "@/components/AdminDashboard";
 import { AnimatedBackground, MouseTrailer } from "@/components/AnimatedEffects";
 import { AuthProvider } from "@/hooks/use-auth";
 import { LanguageProvider } from "@/hooks/use-language";
+
+// Assume necessary types and initial state
+type NewsItem = { title: string; content: string; };
+const initialNews: NewsItem[] = [];
+
+const NewsContext = createContext<{ news: NewsItem[], setNews: React.Dispatch<React.SetStateAction<NewsItem[]>> }>({ news: [], setNews: () => { } });
+
 
 function Router() {
   return (
@@ -24,14 +32,18 @@ function Router() {
 }
 
 function App() {
+  const [newsItems, setNewsItems] = useState<NewsItem[]>(initialNews);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <AuthProvider>
-          <Router />
-          <Toaster />
-        </AuthProvider>
-      </LanguageProvider>
+      <NewsContext.Provider value={{ news: newsItems, setNews: setNewsItems }}>
+        <LanguageProvider>
+          <AuthProvider>
+            <Router />
+            <Toaster />
+          </AuthProvider>
+        </LanguageProvider>
+      </NewsContext.Provider>
     </QueryClientProvider>
   );
 }
