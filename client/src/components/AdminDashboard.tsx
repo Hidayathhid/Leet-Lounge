@@ -41,7 +41,7 @@ export default function AdminDashboard() {
       return;
     }
 
-    const newId = Math.max(0, ...newsItems.map(item => item.id)) + 1;
+    const newId = Math.max(0, ...news.map(item => item.id)) + 1;
     const newsItem: NewsItem = {
       id: newId,
       ...newNewsItem
