@@ -69,16 +69,19 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className={`md:hidden bg-glass-dark ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
-          <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Home</a>
-          <a href="#lounges" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Lounges</a>
-          <a href="#games" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Games</a>
-          <a href="#food" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Food & Drinks</a>
-          <a href="#news" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">News & Updates</a>
-          <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">FAQ</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">Contact</a>
+          <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.home')}</a>
+          <a href="#lounges" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.lounges')}</a>
+          <a href="#games" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.games')}</a>
+          <a href="#food" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.food')}</a>
+          <a href="#news" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.news')}</a>
+          <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.faq')}</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-blue-500 transition-colors duration-300">{t('nav.contact')}</a>
           <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center w-fit">
-            <i className="fas fa-user-shield mr-2"></i> Admin
+            <i className="fas fa-user-shield mr-2"></i> {t('nav.admin')}
           </Link>
+          <div className="pt-2">
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </nav>
