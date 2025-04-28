@@ -2,10 +2,10 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-// Set default document language to Arabic
-document.documentElement.lang = 'ar';
-document.documentElement.dir = 'rtl';
-document.documentElement.classList.add('font-arabic');
+// Set default document language to English
+document.documentElement.lang = 'en';
+document.documentElement.dir = 'ltr';
+document.documentElement.classList.add('font-english');
 
 createRoot(document.getElementById("root")!).render(
   <App />

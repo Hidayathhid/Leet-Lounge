@@ -170,7 +170,7 @@ const arTranslations: TranslationDictionary = {
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('ar');
+  const [language, setLanguageState] = useState<Language>('en');
   const isRTL = language === 'ar';
   
   // Update HTML attributes when language changes
