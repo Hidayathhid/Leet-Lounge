@@ -24,8 +24,11 @@ const enTranslations: TranslationDictionary = {
   'nav.admin': 'Admin',
   
   // Hero section
-  'hero.title': 'In LEET you can become a hero!',
-  'hero.subtitle': 'Experience gaming like never before at Kuwait\'s premier gaming lounge',
+  'hero.imageAlt': 'Gaming Background',
+  'hero.title': 'Welcome to LEET Gaming Lounge',
+  'hero.subtitle': 'In gaming LEET or 133t or 1337 refers to someone who is really good and skilled at playing',
+  'hero.ready': 'Ready to Level Up Your Gaming?',
+  'hero.join': 'Join us at LEET Gaming Lounge for the ultimate gaming experience',
   
   // Lounges section
   'lounges.title': 'Our Gaming Lounges',
@@ -102,8 +105,11 @@ const arTranslations: TranslationDictionary = {
   'nav.admin': 'المسؤول',
   
   // Hero section
-  'hero.title': 'في ليت يمكنك أن تصبح بطلاً!',
-  'hero.subtitle': 'استمتع بتجربة الألعاب كما لم تستمتع من قبل في أفضل صالة ألعاب في الكويت',
+  'hero.imageAlt': 'خلفية الألعاب',
+  'hero.title': 'مرحباً بكم في صالة ليت للألعاب',
+  'hero.subtitle': 'في عالم الألعاب، ليت أو 133t أو 1337 تشير إلى شخص ماهر وبارع في اللعب',
+  'hero.ready': 'هل أنت مستعد للارتقاء بمستوى ألعابك؟',
+  'hero.join': 'انضم إلينا في صالة ليت للألعاب للحصول على أفضل تجربة ألعاب',
   
   // Lounges section
   'lounges.title': 'صالات الألعاب لدينا',
