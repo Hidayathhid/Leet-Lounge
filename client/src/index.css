@@ -5,6 +5,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-english: 'Montserrat', sans-serif;
+  --font-arabic: 'Noto Kufi Arabic', sans-serif;
+}
+
+.font-english {
+  font-family: var(--font-english);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+
+[dir="ltr"] {
+  font-family: var(--font-english);
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -12,12 +12,12 @@ import { Globe, Check } from 'lucide-react';
 export default function LanguageSwitcher() {
   const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const handleLanguageChange = (lang: 'en' | 'ar') => {
     setLanguage(lang);
     setIsOpen(false);
   };
-  
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>

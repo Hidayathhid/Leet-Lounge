@@ -16,19 +16,19 @@ function AnimatedScreen({ content, color = "blue" }) {
     cyan: "bg-cyan-900/30 border-cyan-500/50",
     purple: "bg-purple-900/30 border-purple-500/50"
   };
-  
+
   useEffect(() => {
     if (!content || content.length === 0) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % content.length);
     }, 3000);
-    
+
     return () => clearInterval(interval);
   }, [content]);
-  
+
   if (!content || content.length === 0) return null;
-  
+
   return (
     <div className={`relative p-4 overflow-hidden border rounded-lg ${colors[color] || colors.blue} w-full h-24 flex items-center justify-center mt-4 mb-6`}>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent animate-pulse"></div>
@@ -253,7 +253,7 @@ export default function Lounges() {
                     <p className="text-gray-300 mb-6">
                       {lounge.description}
                     </p>
-                    
+
                     {lounge.accessibility && (
                       <div className="mb-4">
                         <Badge variant="secondary" className="bg-blue-900/30 text-blue-200 hover:bg-blue-800/50">
@@ -262,7 +262,7 @@ export default function Lounges() {
                         <p className="mt-2 text-sm text-gray-400">{lounge.accessibility}</p>
                       </div>
                     )}
-                    
+
                     {lounge.screenContent && (
                       <div className="mb-6">
                         <h4 className="text-xl font-semibold mb-3 text-blue-400">Featured Games</h4>
@@ -326,7 +326,7 @@ export default function Lounges() {
                 <p className="text-gray-400 text-center">
                   Explore the features and specifications of our {selectedLounge.name}.
                 </p>
-                
+
                 {selectedLounge.screenContent && (
                   <div className="mt-6">
                     <h4 className="text-lg font-semibold mb-2">Featured Games</h4>
