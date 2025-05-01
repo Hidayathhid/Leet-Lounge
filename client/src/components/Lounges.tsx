@@ -54,7 +54,8 @@ const lounges = [
     id: "playstation",
     name: "PlayStation Lounge",
     description: "Immerse yourself in the latest PlayStation games with friends on comfortable seating and premium displays.",
-    imageSrc: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // imageSrc: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    imageSrc: "https://i.postimg.cc/25pptPps/Whats-App-Image-2025-05-01-at-1-37-28-AM.jpg",
     screenContent: [
       "Demon's Souls", "Gran Turismo 7", "God of War Ragnarök", "Horizon Forbidden West"
     ],
@@ -85,7 +86,8 @@ const lounges = [
     id: "nonsmoking",
     name: "Non-Smoking Lounge",
     description: "A clean, smoke-free environment for focused PC gaming with high-performance setups.",
-    imageSrc: "https://images.unsplash.com/photo-1547394765-185e1e68f34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // imageSrc: "https://images.unsplash.com/photo-1547394765-185e1e68f34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    imageSrc: "https://i.postimg.cc/WzKj1zK3/Whats-App-Image-2025-05-01-at-1-46-27-AM.jpg",
     screenContent: [
       "Cyberpunk 2077", "Elden Ring", "Valorant", "Counter-Strike 2"
     ],
@@ -116,7 +118,8 @@ const lounges = [
     id: "smoking",
     name: "Smoking Lounge",
     description: "PC gaming with dedicated smoking areas featuring powerful ventilation and premium gaming rigs.",
-    imageSrc: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // imageSrc: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    imageSrc: "https://i.postimg.cc/zDLTpMjw/Whats-App-Image-2025-05-01-at-1-51-08-AM.jpg",
     screenContent: [
       "Diablo IV", "Call of Duty: Modern Warfare", "Fortnite", "Apex Legends"
     ],
@@ -147,7 +150,8 @@ const lounges = [
     id: "vip",
     name: "VIP & Streaming",
     description: "Premium experience with top-tier equipment perfect for tournaments, streaming, and professional gaming.",
-    imageSrc: "https://images.unsplash.com/photo-1618257181089-5e352f3ab06f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    // imageSrc: "https://images.unsplash.com/photo-1618257181089-5e352f3ab06f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    imageSrc: "https://i.postimg.cc/K8MRXSVF/Whats-App-Image-2025-05-01-at-1-40-53-AM.jpg",
     screenContent: [
       "League of Legends", "Starfield", "Final Fantasy XVI", "OBS Streaming"
     ],
@@ -187,8 +191,18 @@ export default function Lounges() {
   };
 
   return (
-    <section id="lounges" className="py-20 bg-gradient-to-b from-background to-background/90">
-      <div className="container mx-auto px-4">
+    // <section id="lounges" className="py-20 bg-gradient-to-b from-background to-background/90">
+    <section
+    id="lounges"
+    className="relative h-screen flex items-center justify-center text-center bg-black bg-opacity-50 py-20 bg-gradient-to-b from-background to-background/90"
+    style={{
+      backgroundImage: "url('/images/LEET_GAME.jpeg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundBlendMode: 'overlay'
+    }}
+  >
+     <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

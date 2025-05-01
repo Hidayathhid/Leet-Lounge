@@ -29,7 +29,7 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <LeetLogo size={40} />
+          <LeetLogo size={100} />
           <h1 className="text-2xl font-montserrat font-bold">
             <span className="text-blue-500">LEET</span> Gaming
           </h1>

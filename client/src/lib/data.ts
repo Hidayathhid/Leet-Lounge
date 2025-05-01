@@ -128,25 +128,25 @@ export const foodItems = [
   {
     name: "Gamer's Pizza",
     description: "Loaded with pepperoni, mozzarella, and special sauce.",
-    price: "$12.99",
+    //price: "$12.99",
     image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   },
   {
     name: "Power-Up Burger",
     description: "Angus beef with cheese, bacon, lettuce, and special sauce.",
-    price: "$14.99",
+   // price: "$14.99",
     image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   },
   {
     name: "XP Nachos",
     description: "Crispy tortilla chips with melted cheese, jalapeños, and salsa.",
-    price: "$9.99",
+    //price: "$9.99",
     image: "https://images.unsplash.com/photo-1585109649139-366815a0d713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   },
   {
     name: "Loaded Fries",
     description: "Crispy fries with cheese sauce, bacon bits, and green onions.",
-    price: "$7.99",
+    //price: "$7.99",
     image: "https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   }
 ];
@@ -155,25 +155,25 @@ export const drinkItems = [
   {
     name: "Gamer Fuel",
     description: "Our special energy drink to keep you in the zone.",
-    price: "$4.99",
+    //price: "$4.99",
     image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   },
   {
     name: "Respawn Coffee",
     description: "Specialty coffee to boost your focus and reaction time.",
-    price: "$5.99",
+    //price: "$5.99",
     image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   },
   {
     name: "Level-Up Milkshake",
     description: "Creamy vanilla milkshake with cookie chunks and whipped cream.",
-    price: "$6.99",
+    //price: "$6.99",
     image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   },
   {
     name: "Classic Sodas",
     description: "Range of carbonated beverages to quench your thirst.",
-    price: "$2.99",
+    //price: "$2.99",
     image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
   }
 ];

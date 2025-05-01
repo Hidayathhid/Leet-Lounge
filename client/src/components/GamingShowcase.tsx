@@ -78,7 +78,7 @@ export default function GamingShowcase() {
         </div>
         
         {/* Featured Games Carousel */}
-        <div className="mb-16 overflow-hidden">
+        {/* <div className="mb-16 overflow-hidden">
           <div ref={carouselRef} className="flex space-x-6 game-carousel">
             {featuredGames.map((game, index) => (
               <div 
@@ -108,7 +108,7 @@ export default function GamingShowcase() {
             ))}
           </div>
         </div>
-        
+         */}
         {/* Game Categories */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

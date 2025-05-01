@@ -64,7 +64,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-phone-alt text-blue-500 mt-1 mr-3"></i>
-                <span className="text-gray-400">(555) 123-4567</span>
+                <span className="text-gray-400">+965 69982790</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-envelope text-blue-500 mt-1 mr-3"></i>
